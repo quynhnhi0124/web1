@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		div, input{
+			margin: 5px 0;
+		}
+		p{
+			display: inline-block;
+			min-width: 85px;
+		}
+		
+		.bai8{
+			max-width: 500px;
+			border: solid 1px black;
+			padding: 0 15px 15px;
+		}
+		
+		.bai9 .col{
+			//height: 110px;
+			display: inline-block;
+		}
+		
+		.bai9{
+			border: solid 1px black;
+			max-width: 400px;
+			height: 250px;
+			padding: 0 15px;
+			position:relative;
+			
+		}
+		
+		.short-col{
+			position: absolute;
+			left: 15px;
+		}
+		
+		.lc{
+			position:absolute;
+			right: 15px;
+		}
+		
+		.bai9 select{
+			width: 100%;
+		}
+		
+	</style>
+</head>
+<body>
+	<div class="bai-1">
+		<h4>Bai 1</h4>
+		Textbox 0: <input type="text" id="box1" name="box1"><br>
+		<button type="button" onclick = "b1()" onsubmit="return false">Submit b1</button>
+		<script>
+			function b1(){
+				var a = document.getElementById('box1').value;
+				alert(a);
+			}
+		</script>
+	</div>
+	<div class="bai2">
+		<h4>Bai 2</h4>
+		<p>Textbox 1:</p> <input type="text" name="box2" id="box2"><br>
+		<p>Textbox 2:</p> <input type="text" name="box3" id="box3"><br>
+		<button type="button" onclick ="b2()" onsubmit="return false">Submit b2</button>
+		<script>
+			function b2(){
+				var b = document.getElementById('box2').value;
+				document.getElementById('box3').value = b;
+			}
+		</script>
+	</div>
+	<div class="bai-3">
+		<h4>Bai 3</h4>
+		<p>Textbox 1:</p> <input type="text" name="box4" id="box4"><br>
+		<p>Textbox 2:</p> <input type="text" name="box5" id="box5" disabled><br>
+		<button type="button" onclick="self.close()" onsubmit="return false">Close b3</button>
+		<script>
+			//onload duoc dung khi su dung mot ham ma phia tren no khong ton tai de tranh loi undefined
+			window.onload = function(){
+				var c = document.getElementById('box4');
+				var d = document.getElementById('box5');
+				c.addEventListener('input', function(){
+					d.value = c.value;
+				})
+			}
+		</script>
+	</div>
+	<div class="bai-4">
+		<h4>Bai 4</h4>
+		<form action="#">
+			<p>Ho ten:</p> 
+			<input type="text" name="box6" id="box6"><br>
+			<p>Ngay sinh:</p> 
+				<span>
+					<select name="month" >
+					<option value="01">January</option>
+					<option value="02">February</option>
+					<option value="03">March</option>
+					<option value="04">April</option>
+					<option value="05">May</option>
+					<option value="06">June</option>
+					<option value="07">July</option>
+					<option value="08">August</option>
+					<option value="09">September</option>
+					<option value="10">October</option>
+					<option value="11">November</option>
+					<option value="12">December</option>
+					</select> 
+				</span>
+				<span>
+					<select name="day" >
+						<option value="01">1</option>
+						<option value="02">2</option>
+						<option value="03">3</option>
+						<option value="04">4</option>
+						<option value="05">5</option>
+						<option value="06">6</option>
+						<option value="07">7</option>
+						<option value="08">8</option>
+						<option value="09">9</option>
+						<option value="10">10</option>
+						<option value="11">11</option>
+						<option value="12">12</option>
+						<option value="13">13</option>
+						<option value="14">14</option>
+						<option value="15">15</option>
+						<option value="16">16</option>
+						<option value="17">17</option>
+						<option value="18">18</option>
+						<option value="19">19</option>
+						<option value="20">20</option>
+						<option value="21">21</option>
+						<option value="22">22</option>
+						<option value="23">23</option>
+						<option value="24">24</option>
+						<option value="25">25</option>
+						<option value="26">26</option>
+						<option value="27">27</option>
+						<option value="28">28</option>
+						<option value="29">29</option>
+						<option value="30">30</option>
+						<option value="31">31</option>
+					</select>
+				</span>
+				<span>
+					<select name="year" >
+						<option value="1907">1999</option>
+						<option value="1906">2000</option>
+						<option value="1905">2001</option>
+						<option value="1904">2002</option>
+						<option value="1903">2003</option>
+					</select>
+				</span><br>
+			<p>Noi sinh:</p> 
+			<span>
+				<select name="noisinh" id="noisinh">
+					<option value="thanhhoa">Thanh Hoa</option>
+					<option value="hue">Hue</option>
+					<option value="haiphong">Hai Phong</option>
+				</select>
+			</span><br>
+			<p>Gioi tinh:</p> 
+			Nam <input type="radio" name="gioitinh" id="nam">
+			Nu <input type="radio" name="gioitinh" id="nu"><br>
+			<!-- <p>Anh:</p> 
+			<input type="text" name="box10" id="box10"><br> -->
+			<p>Dia chi:</p> 
+			<input type="text" name="box11" id="box11"><br>
+			<p>Hoc van:</p> 
+			<span>
+				<select name="hocvan" id="hocvan">
+					<option value="caodang">Cao Dang</option>
+					<option value="cunhanh">Cu Nhan</option>
+					<option value="thacsi">Thac Si</option>
+					<option value="tiensi">Tien Si</option>
+				</select>
+			</span><br>
+			<p>Ngoai ngu:</p> 
+			Tieng Anh: <input type="checkbox" name="tienganh" id="tienganh">&nbsp&nbsp&nbsp
+			Tieng Phap: <input type="checkbox" name="tiengphap" id="tiengphap">&nbsp&nbsp&nbsp
+			Tieng Duc: <input type="checkbox" name="tiengduc" id="tiengduc">&nbsp&nbsp&nbsp
+			Tieng Nga: <input type="checkbox" name="tiengnga" id="tiengnga">&nbsp&nbsp&nbsp
+			Tieng Trung: <input type="checkbox" name="tiengtrung" id="tiengtrung">&nbsp&nbsp&nbsp<br>
+			<p>So thich:</p> 
+			<span>
+				<select name="sothic" id="sothich">
+					<option value="nghenhac">Nghe nhac</option>
+					<option value="xemphim">Xem phim</option>
+				</select>
+			</span><br>
+			<p>Ghi chu:</p> 
+			<textarea name="ghichu" id="ghichu" cols="30" rows="10"></textarea><br>
+		</form>
+		<button type="button" id="b4" onsubmit="return false">Submit b4</button>
+		<div id="output"></div>
+
+		<script>
+			( function($) {
+				$('button').click(function(){
+					var e = $("form").serializeArray();
+					$.each(x,function(i,field){
+						$("#output").append(field.name + ":" +field.value + " ");
+					})
+				})
+			} );
+		</script>
+	</div>
+	<div class="bai-5">
+		<h4>Bai 5</h4>
+		<button onclick="window.open('F:/web/htdocs/t4_3.html','_blank')">Submit b5</button>
+	</div>
+<!--	<div class="bai-6">
+		<h4>Bài 6</h4>
+		<p>Nhập một từ tiếng anh: </p>&nbsp&nbsp&nbsp <input type="text" id="input" name="input" /> <br>
+		<button type="button" onsubmit="return false" onclick="kiemtra()">Kiem tra</button>
+		<button type="button" onsubmit="return false" onclick="them()">Them tu</button><br>
+		<br><p>Danh sách từ: </p>&nbsp&nbsp&nbsp <textarea id="danhsach" name="danhsachtu" rows="10" cols="30" value="xx"></textarea>
+		<script>
+			var listOfWord = ["nhi", "hi"];
+			var elem = document.getElementById('input').value;
+			function kiemtra() {
+				if (listOfWord.indexOf(elem) !== -1) {
+					alert("exist");
+				} else {
+					alert("non-exist");
+				}
+			}			
+		</script>
+	</div> -->
+	<div class="bai7">
+		<h4>Bai 7</h4>
+		<p>Username: </p><input type="text" id="username"/><br>
+		<p>Password: </p><input type="text" id="password"/><br>
+		<button type="button" onsubmit="return false" onclick="b7()">Submit b7</button>
+		<script>
+			function b7(){
+				var username = "123";
+				var password = "123";
+				var u = document.getElementById("username");
+				var p = document.getElementById("password");
+				console.log(u.value, username);
+				console.log(p.value, password);
+				if (u.value != username || p.value != password){
+					if(localStorage.clickcount){
+						localStorage.clickcount = Number(localStorage.clickcount)+1;
+					}else{
+						localStorage.clickcount = 1;
+					}
+					if (localStorage.clickcount >= 3){
+						alert("disabled");
+						var un = document.querySelector("#username");
+						var pw = document.querySelector("#password");
+						un.setAttribute("disabled","");
+						pw.setAttribute("disabled","");
+					}
+					alert("incorrect. count " + localStorage.clickcount);
+				}else if(u.value == username && p.value == password){
+					alert("true");
+				}
+			}
+		</script>
+	</div>
+	<div class="bai8">
+		<h4>Bai 8</h4>
+		<p>So thich: </p><br>
+		<span>
+			Da bong:<input type="radio" name="dabong" id="dabong" value ="Da bong"/>&nbsp&nbsp&nbsp
+			Da cau:<input type="radio" name="dacau" id="dacau" value ="Da cau"/>&nbsp&nbsp&nbsp
+			Tennis:<input type="radio" name="tennis" id="tennis" value ="Tennis"/>&nbsp&nbsp&nbsp
+			Cau long:<input type="radio" name="caulong" id="caulong" value ="Cau long"/>&nbsp&nbsp&nbsp
+		</span><br>
+		<p>Ngon ngu yeu thich: </p><br>
+		<span>
+			Tieng Anh: <input type="radio" name="ngonngu" id="anh" value ="Tieng Anh"/>&nbsp&nbsp&nbsp
+			Tieng Phap: <input type="radio" name="ngonngu" id="phap" value ="Tieng Phap"/>&nbsp&nbsp&nbsp
+			Tieng Duc: <input type="radio" name="ngonngu" id="duc" value ="Tieng Duc"/>&nbsp&nbsp&nbsp
+			Tieng Trung: <input type="radio" name="ngonngu" id="trung" value ="Tieng Trung"/>&nbsp&nbsp&nbsp
+		</span><br>
+		<button type="button" onclick="b8()" onsubmit="return false">Submit b8</button>
+		<script>
+			function b8(){
+				var str = " ";
+				var count = 0;
+				var ngonngu = document.querySelector('input[name="ngonngu"]:checked').value;
+				if(document.getElementById("dabong").checked){
+					count += 1;
+					str += document.getElementById("dabong").value + " ";
+				}
+				if(document.getElementById("dacau").checked){
+					count += 1;
+					str += document.getElementById("dacau").value + " ";
+				}
+				if(document.getElementById("tennis").checked){
+					count += 1;
+					str += document.getElementById("tennis").value + " ";
+				}
+				if(document.getElementById("caulong").checked){
+					count += 1;
+					str += document.getElementById("caulong").value + " ";
+				}
+				if(count >3){
+					alert("chi chon nhieu nhat 3 so thich");
+				}else{
+					alert("so thich: " + str + "\n" + "ngon ngu: " + ngonngu);
+				}
+			}
+		</script>
+	</div>
+	<div class="bai9">
+		<h4>Bai 9</h4>
+		<div class="col short-col">
+			<label for="list-b9">Chon mot tu tieng anh: </label><br>
+			<select id="list-b9">
+				<option name="tu" value="Tap tin">File</option>
+				<option name="tu" value="Chinh sua">Edit</option>
+				<option name="tu" value="Tim kiem">Search</option>
+				<option name="tu" value="Xem">View</option>
+				<option name="tu" value="Ngon ngu">Language</option>
+				<option name="tu" value="Cai dat">Settings</option>
+				<option name="tu" value="Cong cu">Tools</option>
+				<option name="tu" value="Chay">Run</option>
+				<option name="tu"value="Chao">Hi</option>
+				<option name="tu" value="Xin chao">Hello</option>
+			</select><br>
+			<button style="margin: 5px 0; float:right" type="button" onclick="b9()" onsubmit="return false">Kiem tra b9</button>
+		</div>
+		<div class="col lc">
+			<label for="list-b9">Giai nghia: </label><br>
+			<textarea id = "nghia-b9" rows = "5" cols = "20"></textarea>
+		</div>
+		<script>
+			function b9(){
+				var x = document.querySelector('option[name="tu"]:checked');
+				document.getElementById("nghia-b9").innerHTML = x.value;
+				
+			}
+		</script>
+	</div>
+	
+</body>
+</html>
+<!-- <!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+	html{
+		box-sizing: border-box;
+	}
+    @page {
+        size: A4;
+        margin: 0;
+    }
+	.page {
+        width: 210mm;
+        min-height: 297mm;
+        padding: 20mm;
+        margin: 10mm auto;
+    }
+</style>
+<body>
+<div class = 'page'>
+	<form>
+		<label for = 'box'>Nhập nội dung bất kì:	</label>
+		<input type = 'text' id = 'box' placeholder = 'Nhập..'><br><br>
+		<button type = 'submit' onclick = 'myFunction()'>Submit</button><br><br>
+	</form>
+</div>
+<script>
+	function myFunction(){
+		var x = document.getElementById('box').value;
+		alert(x);
+	}
+</script>
+</body>
+</html> -->
