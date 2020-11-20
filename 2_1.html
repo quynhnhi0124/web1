@@ -8,7 +8,8 @@
 		div, input{
 			margin: 5px 0;
 		}
-		p{
+		p{	
+			margin:0;
 			display: inline-block;
 			min-width: 85px;
 		}
@@ -19,12 +20,12 @@
 			padding: 0 15px 15px;
 		}
 		
-		.bai9 .col{
-			//height: 110px;
+		.col{
+			height: 110px;
 			display: inline-block;
 		}
 		
-		.bai9{
+		.bai9, .bai6, .bai10, .bai11, .bai14{
 			border: solid 1px black;
 			max-width: 400px;
 			height: 250px;
@@ -33,18 +34,18 @@
 			
 		}
 		
-		.short-col{
+		.left-col{
 			position: absolute;
 			left: 15px;
 		}
 		
-		.lc{
+		.right-col{
 			position:absolute;
 			right: 15px;
 		}
 		
-		.bai9 select{
-			width: 100%;
+		select{
+			width: 150px;
 		}
 		
 	</style>
@@ -213,14 +214,49 @@
 		<h4>Bai 5</h4>
 		<button onclick="window.open('F:/web/htdocs/t4_3.html','_blank')">Submit b5</button>
 	</div>
-<!--	<div class="bai-6">
+	<div class="bai6">
 		<h4>Bài 6</h4>
-		<p>Nhập một từ tiếng anh: </p>&nbsp&nbsp&nbsp <input type="text" id="input" name="input" /> <br>
-		<button type="button" onsubmit="return false" onclick="kiemtra()">Kiem tra</button>
-		<button type="button" onsubmit="return false" onclick="them()">Them tu</button><br>
-		<br><p>Danh sách từ: </p>&nbsp&nbsp&nbsp <textarea id="danhsach" name="danhsachtu" rows="10" cols="30" value="xx"></textarea>
+		<div class="col left-col">
+			<label for="input-b6">Nhap mot tu tieng anh: </label><br>
+			<input type="text" id="input-b6"/><br>
+			<button style="margin: 5px 0; float:right" type="button" onclick="b6()" onsubmit="return false">Kiem tra b6</button>
+		</div>
+		<div class="col right-col">
+			<label for="list-b6">Giai nghia: </label><br>
+			<select id="list-b6" size="5">
+				<option id="vdd" name="tu6" value="Tap tin">File</option>
+				<option name="tu6" value="Chinh sua">Edit</option>
+				<option name="tu6" value="Tim kiem">Search</option>
+				<option name="tu6" value="Xem">View</option>
+				<option name="tu6" value="Ngon ngu">Language</option>
+				<option name="tu6" value="Cai dat">Settings</option>
+				<option name="tu6" value="Cong cu">Tools</option>
+				<option name="tu6" value="Chay">Run</option>
+				<option name="tu6"value="Chao">Hi</option>
+				<option name="tu6" value="Xin chao">Hello</option>
+			</select><br>
+			<button style="margin: 5px 0; float:right" type="button" onclick="#" onsubmit="return false">Xoa tu</button>
+		</div>
 		<script>
-			var listOfWord = ["nhi", "hi"];
+			
+			var x = document.getElementsByName("tu6");
+			//console.log(x.value);
+			ls = [];
+			x.forEach((i) => {
+				ls.push(i.innerHTML);
+			})
+			console.log(document.getElementById("vdd").innerText);
+			function b6(){
+				var y = document.getElementById("input-b6").value;
+				if(ls.includes(y) == true){
+					alert("vi tri tu: " + ls.indexOf(y));
+				}else{
+					alert("khong ton tai tu");
+				}
+			}
+//alert(x);
+			
+			/*var listOfWord = ["nhi", "hi"];
 			var elem = document.getElementById('input').value;
 			function kiemtra() {
 				if (listOfWord.indexOf(elem) !== -1) {
@@ -228,9 +264,9 @@
 				} else {
 					alert("non-exist");
 				}
-			}			
+			}	*/		
 		</script>
-	</div> -->
+	</div> 
 	<div class="bai7">
 		<h4>Bai 7</h4>
 		<p>Username: </p><input type="text" id="username"/><br>
@@ -312,7 +348,7 @@
 	</div>
 	<div class="bai9">
 		<h4>Bai 9</h4>
-		<div class="col short-col">
+		<div class="col left-col">
 			<label for="list-b9">Chon mot tu tieng anh: </label><br>
 			<select id="list-b9">
 				<option name="tu" value="Tap tin">File</option>
@@ -328,7 +364,7 @@
 			</select><br>
 			<button style="margin: 5px 0; float:right" type="button" onclick="b9()" onsubmit="return false">Kiem tra b9</button>
 		</div>
-		<div class="col lc">
+		<div class="col right-col">
 			<label for="list-b9">Giai nghia: </label><br>
 			<textarea id = "nghia-b9" rows = "5" cols = "20"></textarea>
 		</div>
@@ -340,7 +376,120 @@
 			}
 		</script>
 	</div>
-	
+	<div class="bai10">
+		<h4>Bai 10</h4>
+		<div class = "col left-col">
+			<label for="list-b10">Danh sach tu: </label><br>
+			<select id="danh-sach-tu" size="5" onchange="ds()">
+				<option id = "vd" name="tu10" value="Tap tin">File</option>
+				<option name="tu10" value="Chinh sua">Edit</option>
+				<option name="tu10" value="Tim kiem">Search</option>
+				<option name="tu10" value="Xem">View</option>
+				<option name="tu10" value="Ngon ngu">Language</option>
+				<option name="tu10" value="Cai dat">Settings</option>
+				<option name="tu10" value="Cong cu">Tools</option>
+				<option name="tu10" value="Chay">Run</option>
+				<option name="tu10"value="Chao">Hi</option>
+				<option name="tu10" value="Xin chao">Hello</option>
+			</select>
+		</div>
+		<div class = "col right-col">
+			<label for="meaning-b10">Danh sach nghia: </label><br>
+			<select id="danh-sach-nghia" size="5" onchange="ds()">
+				<option name="tu-10" value="File">Tap tin</option>
+				<option name="tu-10" value="Edit">Chinh sua</option>
+				<option name="tu-10" value="Search">Tim kiem</option>
+				<option name="tu-10" value="View">Xem</option>
+				<option name="tu-10" value="Language">Ngon ngu</option>
+				<option name="tu-10" value="Settings">Cai dat</option>
+				<option name="tu-10" value="Tools">Cong cu</option>
+				<option name="tu-10" value="Run">Chay</option>
+				<option name="tu-10"value="Hi">Chao</option>
+				<option name="tu-10" value="Hello">Xin chao</option>
+			</select>
+			<script>
+				function ds(){
+					var x = document.getElementById('danh-sach-tu');
+					var y = document.getElementById('danh-sach-nghia');
+					
+				}
+			</script>
+		</div>
+	</div>
+	<div class="bai11">
+		<h4>Bai 11</h4>
+		<div class = "col left-col">
+			<label for="list-b11">So thich: </label><br>
+			<p>Da bong </p><input type="checkbox" id="1" name="1" value="Da bong"><br>
+			<p>Da cau </p><input type="checkbox" id="2" name="2" value="Da cau"><br>
+			<p>Cau long </p><input type="checkbox" id="3" name="3" value="Cau long"><br>
+			<button style="margin: 5px 0; float:right" type="button" onclick="myFunction11()" onsubmit="return false">Chon tat ca</button>
+		</div>
+		<div class = "col right-col">
+			<label for="meaning-b11">Danh sach nghia: </label><br>
+			<textarea id="meaning-b11" rows="5" cols="20"></textarea><br>
+		</div>
+		<script>
+			str = "";
+			document.getElementById('1').onchange = function(){
+				if(str.includes(document.getElementById('1').value) == true){
+					str = str.replace(document.getElementById('1').value + "\n", "");
+				}
+				if(document.getElementById('1').checked == true){
+					str+= document.getElementById('1').value;
+					str += "\n";					
+				}
+					document.getElementById('meaning-b11').innerHTML = str;	
+			}
+			document.getElementById('2').onchange = function(){
+				if(str.includes(document.getElementById('2').value) == true){
+					str = str.replace(document.getElementById('2').value + "\n", "");
+				}
+				if(document.getElementById('2').checked == true){
+					str+= document.getElementById('2').value;
+					str += "\n";					
+				}
+					document.getElementById('meaning-b11').innerHTML = str;	
+			}
+			document.getElementById('3').onchange = function(){
+				if(str.includes(document.getElementById('3').value) == true){
+					str = str.replace(document.getElementById('3').value + "\n", "");
+				}
+				if(document.getElementById('3').checked == true){
+					str+= document.getElementById('3').value;
+					str += "\n";					
+				}
+					document.getElementById('meaning-b11').innerHTML = str;	
+			}
+			function myFunction11(){
+				document.getElementById('1').setAttribute("checked","");
+				document.getElementById('2').setAttribute("checked","");
+				document.getElementById('3').setAttribute("checked","");
+				str = str + document.getElementById('1').value + "\n" + document.getElementById('2').value + "\n" + document.getElementById('3').value + "\n";
+				document.getElementById('meaning-b11').innerHTML = str;
+			}
+		</script>
+	</div>
+	<div class="bai14">
+		<h4>Bài 14</h4>
+		<div class="col left-col">
+			<label for="input-b14">Nhap mot tu: </label><br>
+			<input type="text" id="input-b14"/><br>
+			<button style="margin: 5px 0; float:right" type="button" onclick="b14()" onsubmit="return false">Kiem tra b14</button>
+		</div>
+		<div class="col right-col">
+			<label for="list-b14">Dem so tu: </label><br>
+			<input type="text" id="output-b14"/><br>
+			
+		</div>
+		<script>
+			function b14(){
+				var x = document.getElementById("input-b14").value.length;
+				console.log(x);
+				document.getElementById("output-b14").value = x;
+			}
+		</script>
+	</div> 
 </body>
 </html>
 <!-- <!DOCTYPE html>
